@@ -12,13 +12,15 @@ from github import GithubException
 import re
 from collections import Counter
 
-
-
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("compound-ec-crawler.log"),  # Write logs to this file
+        logging.StreamHandler()  # And also print them to the console
+    ]
 )
-
 load_dotenv()
 
 # Constants and configurations
